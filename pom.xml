@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.i2i.academy</groupId>
+    <artifactId>i2i-academy-redis-7</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>i2i Academy Redis 7</name>
+    <description>Java client that caches high volumes of Person objects in Redis using Jedis.</description>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jedis.version>5.2.0</jedis.version>
+        <jackson.version>2.18.2</jackson.version>
+        <exec.mainClass>com.i2i.academy.redis.Application</exec.mainClass>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>i2i-academy-redis-7</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>${exec.mainClass}</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
